@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- base spotting blue -->
+    <color name="spotting.base.100_percent.blue">#1d2983</color>
+    <color name="spotting.base.90_percent.blue">#e61d2983</color>
+    <color name="spotting.base.80_percent.blue">#cc1d2983</color>
+    <color name="spotting.base.70_percent.blue">#b31d2983</color>
+    <color name="spotting.base.60_percent.blue">#991d2983</color>
+
+    <!-- base gray -->
+    <color name="spotting.base.100_percent.gray">#ffececec</color>
+    <color name="spotting.base.90_percent.gray">#e6ececec</color>
+    <color name="spotting.base.80_percent.gray">#ccececec</color>
+
+    <!-- background color -->
+    <color name="spotting.background.gray">#cccccc</color>
+
+    <!-- black -->
+    <color name="spotting.base.black">#000000</color>
+
+    <!-- white -->
+    <color name="spotting.base.white">#ffffff</color>
+    <!-- dark gray-->
+    <color name="spotting.dark.100_percent.gray">#3b4148</color>
+    <color name="spotting.dark.90_percent.gray">#e63b4148</color>
+    <color name="spotting.dark.80_percent.gray">#cc3b4148</color>
+    <color name="spotting.dark.70_percent.gray">#b33b4148</color>
+    <color name="spotting.dark.60_percent.gray">#993b4148</color>
+
+    <!-- hint gray-->
+    <color name="spotting.edittext.hint">#999999</color>
+    <color name="spotting.edittext.text.color">#888888</color>
+</resources>

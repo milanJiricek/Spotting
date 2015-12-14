@@ -1,0 +1,21 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="android:editTextStyle">@style/MyEditText</item>
+        <item name="android:buttonStyle">@style/MyButtonStyle</item>
+    </style>
+
+    <style name="MyEditText" parent="Widget.AppCompat.EditText">
+        <item name="android:textColor">@color/spotting.edittext.text.color</item>
+        <item name="android:textColorHint">@color/spotting.edittext.hint</item>
+        <item name="android:background">@color/spotting.dark.100_percent.gray</item>
+    </style>
+
+    <style name="MyButtonStyle" parent="Widget.AppCompat.ActionButton">
+        <item name="android:background">@drawable/button_background</item>
+        <item name="android:textColor">@color/spotting.base.black</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+</resources>

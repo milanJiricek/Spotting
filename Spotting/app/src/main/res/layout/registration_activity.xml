@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/registerLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/spotting.base.black"
+    android:fillViewport="true"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="10dp"
+    android:scrollbars="">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp">
+
+        <ImageView
+            android:id="@+id/imgLogo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:background="@color/spotting.base.black"
+            android:src="@drawable/ic_spotting_text_148"
+            tools:ignore="ContentDescription" />
+
+        <EditText
+            android:id="@+id/editNick"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:drawableLeft="@drawable/ic_user"
+            android:drawableStart="@drawable/ic_user"
+            android:ellipsize="end"
+            android:hint="@string/spotting.nick"
+            android:imeOptions="actionNext"
+            android:inputType="text"
+            android:padding="10dp"
+            android:singleLine="true" />
+
+        <EditText
+            android:id="@+id/editEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:drawableLeft="@drawable/ic_mail"
+            android:drawableStart="@drawable/ic_mail"
+            android:ellipsize="end"
+            android:hint="@string/spotting.mail"
+            android:imeOptions="actionNext"
+            android:inputType="textEmailAddress"
+            android:padding="10dp"
+            android:singleLine="true" />
+
+        <EditText
+            android:id="@+id/editTextPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:drawableLeft="@drawable/ic_pass"
+            android:drawableStart="@drawable/ic_pass"
+            android:ellipsize="end"
+            android:hint="@string/spotting.password"
+            android:imeOptions="actionNext"
+            android:inputType="textPassword"
+            android:padding="10dp"
+            android:singleLine="true" />
+
+        <EditText
+            android:id="@+id/editPasswordRepeat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:drawableLeft="@drawable/ic_pass"
+            android:drawableStart="@drawable/ic_pass"
+            android:ellipsize="end"
+            android:hint="@string/spotting.password_repeat"
+            android:imeOptions="actionGo"
+            android:inputType="textPassword"
+            android:padding="10dp"
+            android:singleLine="true" />
+
+        <!-- Register Button -->
+        <Button
+            android:id="@+id/btnRegistration"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/spotting.btn.register"
+            android:textAllCaps="true"
+            android:textColor="@color/spotting.base.black"
+            android:textSize="20sp" />
+
+        <!-- Link to LoginActivity Screen -->
+
+        <Button
+            android:id="@+id/txtLinkToLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dip"
+            android:background="@null"
+            android:text="@string/spotting.link.to.login"
+            android:textAllCaps="false"
+            android:textColor="@drawable/textview_selector"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/txtVersion"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="10dp"
+            android:gravity="bottom|center_horizontal"
+            android:textColor="@color/spotting.base.80_percent.gray"
+            android:textSize="15sp" />
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,35 @@
+<resources>
+    <string name="app_name">Spotting</string>
+
+    <!-- all screens-->
+    <string name="spotting.check.connection">Zkontrolujte připojení k internetu.</string>
+    <string name="spotting.volley.error">Omlouváme se, při zpracování Vašeho požadavku došlo k chybě - prosím, zkuste to znovu.</string>
+
+    <!-- for login/registration activity -->
+    <string name="spotting.nick">Uživatelské jméno</string>
+    <string name="spotting.password">Heslo</string>
+    <string name="spotting.btn.login">Přihlásit se</string>
+    <string name="spotting.btn.register">Zaregistrovat se</string>
+    <string name="spotting.login.link.to.registration">Ještě nemáte účet? Zaregistrujte se.</string>
+    <string name="spotting.mail">E-mail</string>
+    <string name="spotting.password_repeat">Potvrďte heslo</string>
+    <string name="spotting.link.to.login">Zpět na přihlášení.</string>
+    <string name="spotting.forgot.password">Zapomněli jste svoje přihlašovací údaje? Pomůžeme Vám.</string>
+    <string name="spotting.log.error">Omlouváme se, během přihlášení došlo k chybě - zkuste to prosím znovu.</string>
+    <string name="spotting.log.edittext.error.field">Toto pole je povinné</string>
+    <string name="spotting.logging">Přihlášení…</string>
+    <string name="spotting.registering">Registrace…</string>
+    <string name="spotting.incorrect.nick.or.password">Uživatelské jméno nebo heslo není správné!</string>
+    <string name="spotting.user.already.existed">Uživatel již existuje!</string>
+    <string name="spotting.mail.not_valid">E-mail není validní</string>
+    <string name="spotting.password.not_match">Hesla se neshodují</string>
+    <string name="spotting.password.length">Heslo musí obsahovat nejméně 6 znaků</string>
+    <string name="spotting.registration_successful">Vaše registrace byla úspěšná.</string>
+
+    <!-- forgot password-->
+    <string name="spotting.forgot.password.send_mail">Odeslat e-mail</string>
+    <string name="spotting.forgot.password.title">Obnovit heslo</string>
+    <string name="spotting.forgot.password.new_pass_send">Email s novým heslem byl odeslán. Zkontrolujte si složku se spamem!"</string>
+    <string name="spotting.forgot.password.not.new_pass_send">Váš e-mail nebyl odeslán. Prosím, zkuste to znovu později."</string>
+    <string name="spotting.forgot.password.name.or.pass.not.exist">Uživatelské jméno nebo email neexistují."</string>
+</resources>
