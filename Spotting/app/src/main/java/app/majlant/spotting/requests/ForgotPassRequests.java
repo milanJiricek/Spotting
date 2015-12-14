@@ -1,6 +1,7 @@
 package app.majlant.spotting.requests;
 
 import android.app.Activity;
+import android.content.pm.ActivityInfo;
 import android.graphics.drawable.AnimationDrawable;
 import android.support.v4.app.FragmentManager;
 import android.widget.Toast;
@@ -20,6 +21,7 @@ import app.majlant.spotting.app.AppController;
 import app.majlant.spotting.app.Config;
 import app.majlant.spotting.fragments.ForgotPassDialogFragment;
 import app.majlant.spotting.interfaces.VolleyResponse;
+import app.majlant.spotting.utils.Utils;
 
 /**
  * Created by majlant on 5.12.15.
@@ -30,6 +32,9 @@ public class ForgotPassRequests {
     private static final String TAG = "ForgotPassRequests";
 
     public static void sendMail(final Activity activity, final FragmentManager fragmentManager, final String nick, final String mail, final VolleyResponse delegate, final AnimationDrawable frameAnimation) {
+        //stop sensor
+        Utils.setActivityOrientation(activity, activity.getResources().getConfiguration().orientation);
+
         frameAnimation.start();
         setVisibleProgress(fragmentManager, true);
 
@@ -38,6 +43,9 @@ public class ForgotPassRequests {
             @Override
             public void onResponse(String response) {
                 VolleyLog.v("Response:%n %s", response);
+                //start sensor
+                activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR);
+
                 frameAnimation.stop();
                 setVisibleProgress(fragmentManager, false);
                 delegate.processFinish(response);
@@ -46,6 +54,9 @@ public class ForgotPassRequests {
             @Override
             public void onErrorResponse(VolleyError error) {
                 VolleyLog.e("Error: ", error.getMessage());
+                //start sensor
+                activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR);
+
                 frameAnimation.stop();
                 setVisibleProgress(fragmentManager, false);
                 Toast.makeText(activity, activity.getResources().getString(R.string.spotting_volley_error), Toast.LENGTH_LONG).show();

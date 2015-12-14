@@ -1,5 +1,6 @@
 package app.majlant.spotting.fragments;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.graphics.drawable.AnimationDrawable;
@@ -53,15 +54,23 @@ public class ForgotPassDialogFragment extends DialogFragment {
 
     private View view;
     private boolean isVisibleProgress = false;
+    private Activity activity;
 
     public static ForgotPassDialogFragment newInstance() {
         return new ForgotPassDialogFragment();
     }
 
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+
+        this.activity = activity;
+    }
+
     @NonNull
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
-        LayoutInflater inflater = getActivity().getLayoutInflater();
+        LayoutInflater inflater = activity.getLayoutInflater();
 
         view = inflater.inflate(R.layout.dialog_fragment_forgot_pass, null);
         ButterKnife.bind(this, view);
@@ -69,7 +78,7 @@ public class ForgotPassDialogFragment extends DialogFragment {
         if (savedInstanceState != null) {
             isVisibleProgress = savedInstanceState.getBoolean(PUT_VISIBLE_KEY);
             if (isVisibleProgress) {
-                Animation fadeIn = AnimationUtils.loadAnimation(getActivity(), android.R.anim.fade_in);
+                Animation fadeIn = AnimationUtils.loadAnimation(activity, android.R.anim.fade_in);
                 imgProgress.startAnimation(fadeIn);
                 imgProgress.setVisibility(View.VISIBLE);
 
@@ -82,7 +91,7 @@ public class ForgotPassDialogFragment extends DialogFragment {
         initBtnCloseEvent();
         initBtnSendMailEvent();
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        AlertDialog.Builder builder = new AlertDialog.Builder(activity);
         builder.setView(view);
         return builder.create();
     }
@@ -111,12 +120,12 @@ public class ForgotPassDialogFragment extends DialogFragment {
                 }
 
                 //Check connection
-                if (!Utils.haveInternet(getActivity())) {
-                    Toast.makeText(getActivity(), getResources().getString(R.string.spotting_check_connection), Toast.LENGTH_LONG).show();
+                if (!Utils.haveInternet(activity)) {
+                    Toast.makeText(activity, activity.getResources().getString(R.string.spotting_check_connection), Toast.LENGTH_LONG).show();
                     return;
                 }
 
-                Animation fadeIn = AnimationUtils.loadAnimation(getActivity(), android.R.anim.fade_in);
+                Animation fadeIn = AnimationUtils.loadAnimation(activity, android.R.anim.fade_in);
                 imgProgress.startAnimation(fadeIn);
                 imgProgress.setVisibility(View.VISIBLE);
 
@@ -125,7 +134,7 @@ public class ForgotPassDialogFragment extends DialogFragment {
                 //frameAnimation.start();
                 //isVisibleProgress = true;
 
-                ForgotPassRequests.sendMail(getActivity(), getFragmentManager(), nick, mail, new VolleyResponse() {
+                ForgotPassRequests.sendMail(activity, getFragmentManager(), nick, mail, new VolleyResponse() {
                     @Override
                     public void processFinish(String response) {
                         //todo handle response
@@ -134,24 +143,24 @@ public class ForgotPassDialogFragment extends DialogFragment {
                             int errorState = jObj.getInt("error");
                             switch (errorState) {
                                 case Const.OK:
-                                    Utils.showInfoSnackbar(getActivity().findViewById(R.id.loginLayout),
-                                            getResources().getString(R.string.spotting_forgot_password_new_pass_send),
-                                            getActivity());
+                                    Utils.showInfoSnackbar(activity.findViewById(R.id.loginLayout),
+                                            activity.getResources().getString(R.string.spotting_forgot_password_new_pass_send),
+                                            activity);
                                     dismiss();
                                     break;
                                 case Const.NICK_OR_MAIL_DOES_NOT_EXIST:
-                                    Toast.makeText(getActivity(), getResources().getString(R.string.spotting_forgot_password_name_or_pass_not_exist), Toast.LENGTH_LONG).show();
+                                    Toast.makeText(activity, activity.getResources().getString(R.string.spotting_forgot_password_name_or_pass_not_exist), Toast.LENGTH_LONG).show();
                                     break;
                                 case Const.MAIL_NEW_PASS_NOT_SENT:
-                                    Toast.makeText(getActivity(), getResources().getString(R.string.spotting_forgot_password_not_new_pass_send), Toast.LENGTH_LONG).show();
+                                    Toast.makeText(activity, activity.getResources().getString(R.string.spotting_forgot_password_not_new_pass_send), Toast.LENGTH_LONG).show();
                                     break;
                                 default:
-                                    Toast.makeText(getActivity(), getResources().getString(R.string.spotting_volley_error), Toast.LENGTH_LONG).show();
+                                    Toast.makeText(activity, activity.getResources().getString(R.string.spotting_volley_error), Toast.LENGTH_LONG).show();
                                     break;
                             }
                         } catch (JSONException e) {
                             Log.v("ForgotPass", "JSONException" + e);
-                            Toast.makeText(getActivity(), getResources().getString(R.string.spotting_volley_error), Toast.LENGTH_LONG).show();
+                            Toast.makeText(activity, activity.getResources().getString(R.string.spotting_volley_error), Toast.LENGTH_LONG).show();
                         }
                     }
                 }, frameAnimation);
