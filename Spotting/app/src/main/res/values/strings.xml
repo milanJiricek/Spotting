@@ -32,4 +32,13 @@
     <string name="spotting.forgot.password.new_pass_send">Email with your new password was sent. Check your Spam folder!"</string>
     <string name="spotting.forgot.password.not.new_pass_send">Your email has not been sent. Please try again later."</string>
     <string name="spotting.forgot.password.name.or.pass.not.exist">Username or e-mail does not exist."</string>
+    <string name="title_activity_spots">SpotsActivity</string>
+
+    <string name="title_section1">Section 1</string>
+    <string name="title_section2">Section 2</string>
+    <string name="title_section3">Section 3</string>
+
+    <string name="hello_world">Hello world!</string>
+
+    <string name="action_settings">Settings</string>
 </resources>

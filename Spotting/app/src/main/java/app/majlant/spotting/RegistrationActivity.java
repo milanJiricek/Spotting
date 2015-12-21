@@ -2,12 +2,14 @@ package app.majlant.spotting;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.drawable.TransitionDrawable;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import org.json.JSONException;
@@ -49,6 +51,10 @@ public class RegistrationActivity extends FragmentActivity {
 
     @Bind(R.id.editPasswordRepeat)
     EditText editPasswordRepeat;
+
+    @Bind(R.id.registerLayout)
+    ScrollView registerLayout;
+
     private Activity activity;
 
     @Override
@@ -57,6 +63,9 @@ public class RegistrationActivity extends FragmentActivity {
         setContentView(R.layout.registration_activity);
         ButterKnife.bind(this);
         activity = this;
+
+        TransitionDrawable transition = (TransitionDrawable) registerLayout.getBackground();
+        transition.startTransition(Const.TRANSACTION_TIME);
 
         initLinkToLoginEvent();
         initBtnRegistrationEvent();
@@ -152,7 +161,7 @@ public class RegistrationActivity extends FragmentActivity {
 
                 //Check connection
                 if (!Utils.haveInternet(activity)) {
-                    Utils.showErrorSnackbar(activity.findViewById(R.id.registerLayout),
+                    Utils.showErrorSnackbar(registerLayout,
                             activity.getResources().getString(R.string.spotting_check_connection),
                             activity);
                     return;
@@ -178,19 +187,19 @@ public class RegistrationActivity extends FragmentActivity {
                                     overridePendingTransition(R.anim.push_right_in, R.anim.push_right_out);
                                     break;
                                 case Const.USER_ALREADY_EXISTED:
-                                    Utils.showErrorSnackbar(activity.findViewById(R.id.registerLayout),
+                                    Utils.showErrorSnackbar(registerLayout,
                                             activity.getResources().getString(R.string.spotting_user_already_existed),
                                             activity);
                                     break;
                                 default:
-                                    Utils.showErrorSnackbar(activity.findViewById(R.id.registerLayout),
+                                    Utils.showErrorSnackbar(registerLayout,
                                             activity.getResources().getString(R.string.spotting_volley_error),
                                             activity);
                                     break;
                             }
                         } catch (JSONException e) {
                             Log.v(TAG, "JSONException" + e);
-                            Utils.showErrorSnackbar(activity.findViewById(R.id.registerLayout),
+                            Utils.showErrorSnackbar(registerLayout,
                                     activity.getResources().getString(R.string.spotting_volley_error),
                                     activity);
                         }

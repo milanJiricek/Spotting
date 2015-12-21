@@ -16,5 +16,8 @@ public class Const {
     public static final int ERROR_OCCURRED_IN_REGISTRATION = -6;
     public static final int NICK_OR_MAIL_DOES_NOT_EXIST = -7;
     public static final int MAIL_NEW_PASS_NOT_SENT = -8;
+
+
+    public static final int TRANSACTION_TIME = 15000;
     private static final String TAG = "Const";
 }

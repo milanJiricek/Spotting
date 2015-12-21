@@ -2,6 +2,7 @@ package app.majlant.spotting;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.drawable.TransitionDrawable;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
@@ -11,8 +12,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ScrollView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -50,6 +51,10 @@ public class LoginActivity extends FragmentActivity {
 
     @Bind(R.id.editPassword)
     EditText editPassword;
+
+    @Bind(R.id.loginLayout)
+    ScrollView loginLayout;
+
     private Activity activity;
 
     @Override
@@ -58,6 +63,9 @@ public class LoginActivity extends FragmentActivity {
         setContentView(R.layout.login_activity);
         ButterKnife.bind(this);
         activity = this;
+
+        TransitionDrawable transition = (TransitionDrawable) loginLayout.getBackground();
+        transition.startTransition(Const.TRANSACTION_TIME);
 
         initBtnLoginEvent();
         initBtnLinkToRegistrationEvent();
@@ -73,7 +81,7 @@ public class LoginActivity extends FragmentActivity {
             String nick = extras.getString(RegistrationActivity.EXTRAS_NICK);
             if (nick != null) {
                 editNick.setText(nick);
-                Utils.showErrorSnackbar(activity.findViewById(R.id.loginLayout),
+                Utils.showErrorSnackbar(loginLayout,
                         activity.getResources().getString(R.string.spotting_registration_successful),
                         activity);
             }
@@ -153,7 +161,7 @@ public class LoginActivity extends FragmentActivity {
 
                 //Check connection
                 if (!Utils.haveInternet(activity)) {
-                    Utils.showErrorSnackbar(activity.findViewById(R.id.loginLayout),
+                    Utils.showErrorSnackbar(loginLayout,
                             activity.getResources().getString(R.string.spotting_check_connection),
                             activity);
                     return;
@@ -168,23 +176,23 @@ public class LoginActivity extends FragmentActivity {
                             int errorState = jObj.getInt("error");
                             switch (errorState) {
                                 case Const.OK:
-                                    Toast.makeText(activity, "ok"
-                                            , Toast.LENGTH_LONG).show();
+                                    Intent intent = new Intent(activity, SpotsActivity.class);
+                                    startActivity(intent);
                                     break;
                                 case Const.INCORRECT_NICK_OR_PASS:
-                                    Utils.showErrorSnackbar(activity.findViewById(R.id.loginLayout),
+                                    Utils.showErrorSnackbar(loginLayout,
                                             activity.getResources().getString(R.string.spotting_incorrect_nick_or_password),
                                             activity);
                                     break;
                                 default:
-                                    Utils.showErrorSnackbar(activity.findViewById(R.id.loginLayout),
+                                    Utils.showErrorSnackbar(loginLayout,
                                             activity.getResources().getString(R.string.spotting_log_error),
                                             activity);
                                     break;
                             }
                         } catch (JSONException e) {
                             Log.v(TAG, "JSONException" + e);
-                            Utils.showErrorSnackbar(activity.findViewById(R.id.loginLayout),
+                            Utils.showErrorSnackbar(loginLayout,
                                     activity.getResources().getString(R.string.spotting_log_error),
                                     activity);
                         }
