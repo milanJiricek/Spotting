@@ -5,7 +5,14 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     <!-- for buttons -->
     <dimen name="spotting.button.text.size">20sp</dimen>
+    <!-- for editext -->
+    <dimen name="spotting.edit.size">20sp</dimen>
+    <!-- for textview -->
+    <dimen name="spotting.text.size_port">15sp</dimen>
+    <dimen name="spotting.text.size_land">14sp</dimen>
 
     <!-- for all activities -->
     <dimen name="spotting.padding_left_right">20dp</dimen>
+    <dimen name="spotting.padding_top.port">0dp</dimen>
+    <dimen name="spotting.padding_top.land">20dp</dimen>
 </resources>

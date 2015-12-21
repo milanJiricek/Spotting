@@ -15,6 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:paddingTop="@dimen/spotting.padding_top.port"
         android:paddingLeft="@dimen/spotting.padding_left_right"
         android:paddingRight="@dimen/spotting.padding_left_right">
 
@@ -34,11 +35,11 @@
             android:drawableStart="@drawable/ic_user"
             android:ellipsize="end"
             android:hint="@string/spotting.nick"
-            android:text="majlant"
             android:imeOptions="actionNext"
             android:inputType="text"
             android:padding="10dp"
-            android:singleLine="true" />
+            android:singleLine="true"
+            android:text="majlant" />
 
         <EditText
             android:id="@+id/editPassword"
@@ -49,11 +50,11 @@
             android:drawableStart="@drawable/ic_pass"
             android:ellipsize="end"
             android:hint="@string/spotting.password"
-            android:text="skateboard"
             android:imeOptions="actionGo"
             android:inputType="textPassword"
             android:padding="10dp"
-            android:singleLine="true" />
+            android:singleLine="true"
+            android:text="skateboard" />
 
         <!-- Log in Button -->
         <Button
@@ -63,8 +64,7 @@
             android:layout_marginTop="20dp"
             android:text="@string/spotting.btn.login"
             android:textAllCaps="true"
-            android:textColor="@color/spotting.base.black"
-            android:textSize="20sp" />
+            android:textColor="@color/spotting.base.black" />
 
         <!-- Link to Registration Screen -->
 
@@ -77,7 +77,7 @@
             android:text="@string/spotting.login.link.to.registration"
             android:textAllCaps="false"
             android:textColor="@drawable/textview_selector"
-            android:textSize="15sp" />
+            android:textSize="@dimen/spotting.text.size_port" />
 
         <View
             android:layout_width="match_parent"
@@ -93,7 +93,7 @@
             android:text="@string/spotting.forgot.password"
             android:textAllCaps="false"
             android:textColor="@drawable/textview_selector"
-            android:textSize="15sp" />
+            android:textSize="@dimen/spotting.text.size_port" />
 
         <TextView
             android:id="@+id/txtVersion"
@@ -102,6 +102,6 @@
             android:layout_marginBottom="10dp"
             android:gravity="bottom|center_horizontal"
             android:textColor="@color/spotting.base.80_percent.gray"
-            android:textSize="15sp" />
+            android:textSize="@dimen/spotting.text.size_port" />
     </LinearLayout>
 </ScrollView>

@@ -3,10 +3,17 @@
          (such as screen margins) for screens with more than 820dp of available width. This
          would include 7" and 10" devices in landscape (~960dp and ~1280dp respectively). -->
     <dimen name="activity_horizontal_margin">64dp</dimen>
-    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">64dp</dimen>
     <!-- for buttons -->
-    <dimen name="spotting.button.text.size">20sp</dimen>
+    <dimen name="spotting.button.text.size">35sp</dimen>
+    <!-- for editext -->
+    <dimen name="spotting.edit.size">35sp</dimen>
+    <!-- for textview -->
+    <dimen name="spotting.text.size_port">20sp</dimen>
+    <dimen name="spotting.text.size_land">19sp</dimen>
 
     <!-- for all activities -->
-    <dimen name="spotting.padding_left_right">40dp</dimen>
+    <dimen name="spotting.padding_left_right">50dp</dimen>
+    <dimen name="spotting.padding_top.port">100dp</dimen>
+    <dimen name="spotting.padding_top.land">100dp</dimen>
 </resources>

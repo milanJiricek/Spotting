@@ -16,7 +16,8 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:paddingLeft="@dimen/spotting.padding_left_right"
-        android:paddingRight="@dimen/spotting.padding_left_right">
+        android:paddingRight="@dimen/spotting.padding_left_right"
+        android:paddingTop="@dimen/spotting.padding_top.port">
 
         <ImageView
             android:id="@+id/imgLogo"
@@ -90,8 +91,7 @@
             android:layout_marginTop="20dp"
             android:text="@string/spotting.btn.register"
             android:textAllCaps="true"
-            android:textColor="@color/spotting.base.black"
-            android:textSize="20sp" />
+            android:textColor="@color/spotting.base.black" />
 
         <!-- Link to LoginActivity Screen -->
 
@@ -104,7 +104,7 @@
             android:text="@string/spotting.link.to.login"
             android:textAllCaps="false"
             android:textColor="@drawable/textview_selector"
-            android:textSize="15sp" />
+            android:textSize="@dimen/spotting.text.size_port" />
 
         <TextView
             android:id="@+id/txtVersion"
@@ -113,6 +113,6 @@
             android:layout_marginBottom="10dp"
             android:gravity="bottom|center_horizontal"
             android:textColor="@color/spotting.base.80_percent.gray"
-            android:textSize="15sp" />
+            android:textSize="@dimen/spotting.text.size_port" />
     </LinearLayout>
 </ScrollView>
